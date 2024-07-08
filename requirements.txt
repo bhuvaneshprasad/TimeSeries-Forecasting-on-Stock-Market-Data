@@ -1,0 +1,17 @@
+darts
+gdown==5.2.0
+dvc==3.51.2
+pandas==2.2.2
+numpy
+matplotlib==3.9.1
+seaborn==0.13.2
+lightning
+python-box==7.2.0
+pyYAML==6.0.1
+tqdm==4.66.4
+ensure==1.0.4
+joblib==1.4.2
+types-PyYAML==6.0.12
+fastapi==0.111.0
+streamlit==1.36.0
+-e .
