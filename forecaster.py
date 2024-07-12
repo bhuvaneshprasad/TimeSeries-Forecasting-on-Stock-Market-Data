@@ -37,7 +37,7 @@ def create_features(df, pred):
     
     return df
 
-def forecast(model, df, X, time_steps, scaler, close_df, future_steps=25, fig=False) -> pd.DataFrame:
+def forecast(model, df, X, time_steps, scaler, close_df, future_steps=15, fig=False) -> pd.DataFrame:
     future_predictions = []
     last_row = X[-1:]
     df_forecast = df.copy()
@@ -92,7 +92,7 @@ def main() -> pd.DataFrame:
     X, y, dates = data_preprocessing.create_sequences(scaled_df, params.TIME_STEPS)
     model = tf.keras.models.load_model(config_file.model_training.trained_model_path)
     
-    forecast_df = forecast(model, scaled_df, X, params.TIME_STEPS, scaler, close_df, future_steps=25)
+    forecast_df = forecast(model, scaled_df, X, params.TIME_STEPS, scaler, close_df, future_steps=15)
     
     return forecast_df
 
