@@ -6,6 +6,7 @@ class DataIngestionConfig:
     root_dir: Path
     source_url: Path
     data_dir: Path
+    scaler_path: Path
 
 @dataclass(frozen=True)
 class ModelTrainingConfig:

@@ -23,7 +23,7 @@ STAGE_NAME = "Data Pre-Processing Stage"
 try:
     logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
     obj = DataPreProcessingPipeline()
-    X_train, X_val, X_test, y_train, y_val, y_test, dates_train, dates_val, dates_test, scaler, close_df = obj.main()
+    X_train, X_val, X_test, y_train, y_val, y_test, dates_train, dates_val, dates_test, close_df = obj.main()
     logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<")
 except Exception as e:
     logger.exception(e)

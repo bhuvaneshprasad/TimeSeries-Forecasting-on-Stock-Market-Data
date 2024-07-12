@@ -16,12 +16,12 @@ class DataPreProcessingPipeline:
             df = data_preprocessing.process_csv()
             close_df = df['Close']
             df.drop(columns=['Close'], inplace=True)
-            scaler, scaled_df = data_preprocessing.scaling_data(df)
+            scaled_df = data_preprocessing.scaling_data(df)
             time_steps = 60
             X, y, dates = data_preprocessing.create_sequences(scaled_df, time_steps)
             X_train, X_val, X_test, y_train, y_val, y_test, dates_train, dates_val, dates_test = data_preprocessing.train_test_split(X, y, dates, train_len=0.8, val_len=0.1, test_len=0.1)
             
-            return X_train, X_val, X_test, y_train, y_val, y_test, dates_train, dates_val, dates_test, scaler, close_df
+            return X_train, X_val, X_test, y_train, y_val, y_test, dates_train, dates_val, dates_test, close_df
         except Exception as e:
             raise e
 

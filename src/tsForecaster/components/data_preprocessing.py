@@ -1,4 +1,6 @@
+import os
 from pathlib import Path
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
@@ -42,8 +44,9 @@ class DataPreProcessing:
         logger.info("Scaling data...")
         scaler = MinMaxScaler()
         df_scaled = pd.DataFrame(scaler.fit_transform(df), columns=df.columns, index=df.index)
+        joblib.dump(scaler, Path(os.path.join(self.config.scaler_path, 'scaler.pkl')))
         logger.info("Data scaling done")
-        return scaler, df_scaled
+        return df_scaled
     
     def create_sequences(self, df: pd.DataFrame, time_steps: int):
         logger.info("Creating X, y sequences...")
