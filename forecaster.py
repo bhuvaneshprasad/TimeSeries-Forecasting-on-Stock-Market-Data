@@ -37,7 +37,7 @@ def create_features(df, pred):
     
     return df
 
-def forecast(model, df, X, time_steps, scaler, close_df, future_steps=25) -> pd.DataFrame:
+def forecast(model, df, X, time_steps, scaler, close_df, future_steps=25, fig=False) -> pd.DataFrame:
     future_predictions = []
     last_row = X[-1:]
     df_forecast = df.copy()
@@ -67,9 +67,10 @@ def forecast(model, df, X, time_steps, scaler, close_df, future_steps=25) -> pd.
     future_dates = pd.date_range(start=df.index[-1] + pd.DateOffset(1), periods=future_steps, freq='D')
     future_df = pd.DataFrame(future_closes, index=future_dates, columns=['Close'])
 
-    plt.figure(figsize=(15, 5))
-    plt.plot(future_dates, future_df)
-    plt.show()
+    if fig:
+        plt.figure(figsize=(15, 5))
+        plt.plot(future_dates, future_df)
+        plt.show()
     
     return future_df
 
