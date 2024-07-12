@@ -3,6 +3,7 @@ from tsForecaster import logger
 from tsForecaster.pipeline.stage_01_data_ingestion import DataIngestionPipeline
 from tsForecaster.pipeline.stage_02_data_preprocessing import DataPreProcessingPipeline
 from tsForecaster.pipeline.stage_03_model_training import ModelTrainingPipeline
+from tsForecaster.pipeline.stage_04_model_evaluation import ModelEvaluationPipeline
 
 # load_dotenv()
 
@@ -39,13 +40,13 @@ except Exception as e:
     logger.exception(e)
     raise e
 
-# STAGE_NAME = "Model Evaluation Stage"
+STAGE_NAME = "Model Evaluation Stage"
 
-# try:
-#     logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
-#     obj = ModelEvaluationPipeline()
-#     obj.main()
-#     logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<")
-# except Exception as e:
-#     logger.exception(e)
-#     raise e
+try:
+    logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
+    obj = ModelEvaluationPipeline()
+    obj.main(X_test, y_test, dates_test)
+    logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<")
+except Exception as e:
+    logger.exception(e)
+    raise e
