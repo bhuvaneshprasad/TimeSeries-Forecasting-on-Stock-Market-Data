@@ -1,8 +1,6 @@
-import os
 from tsForecaster.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from tsForecaster.utils.common import read_yaml, create_directories
 from tsForecaster.entity.config_entity import DataIngestionConfig
-from pathlib import Path
 
 class ConfigurationManager:
     def __init__(self, config_file_path=CONFIG_FILE_PATH, params_file_path=PARAMS_FILE_PATH) -> None:
