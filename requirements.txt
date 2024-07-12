@@ -1,4 +1,5 @@
 darts
+tensorflow==2.17.0
 opendatasets==0.1.22
 dvc==3.51.2
 pandas==2.2.2

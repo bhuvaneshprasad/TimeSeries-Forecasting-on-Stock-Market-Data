@@ -4,3 +4,7 @@ data_ingestion:
   root_dir: artifacts/data_ingestion
   source_url: https://drive.google.com/file/d/1kI7vnsPB46Z2grGq9GSaUCaQ3Y1ekI9a/view?usp=sharing
   data_dir: artifacts/data_ingestion/
+
+model_training:
+  root_dir: artifacts/model_training
+  trained_model_path: artifacts/model_training/model.keras

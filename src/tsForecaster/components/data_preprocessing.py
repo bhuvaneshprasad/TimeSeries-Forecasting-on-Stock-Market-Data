@@ -44,18 +44,18 @@ class DataPreProcessing:
         df_scaled = pd.DataFrame(scaler.fit_transform(df), columns=df.columns, index=df.index)
         logger.info("Data scaling done")
         return scaler, df_scaled
-
+    
     def create_sequences(self, df: pd.DataFrame, time_steps: int):
         logger.info("Creating X, y sequences...")
-        X, y, dates = [], [], []
-        for i in range(time_steps, len(df)):
-            X.append(df.iloc[i-time_steps:i].values)
-            y.append(df.iloc[i]['Close%'])
+        X, y = [], []
+        for i in range(len(df) - time_steps):
+            X.append(df.iloc[i: i + time_steps, 1:].values)
+            y.append(df.iloc[i, 0])
         dates = df.index[time_steps:]
         logger.info("X, y sequences created")
-        return np.array(X), np.array(y), np.array(dates)
+        return np.array(X), np.array(y), dates
 
-    def train_test_split(self, X, y, dates, time_steps, train_len=0.8, val_len=0.1, test_len=0.1):
+    def train_test_split(self, X, y, dates, train_len=0.8, val_len=0.1, test_len=0.1):
         logger.info("Splitting train, val, test data...")
         total_len = train_len + val_len + test_len
         if total_len != 1.0:
