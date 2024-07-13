@@ -14,7 +14,7 @@ class DataPreProcessing:
     def process_csv(self) -> pd.DataFrame:
         logger.info("Processing data from CSV to DataFrame")
         df_path = Path(self.config.data_dir) / "NIFTY 50_Historical.csv"
-        df = pd.read_csv(df_path)
+        df = pd.read_csv(df_path, index_col=[0])
         df.drop(columns=['Index Name', 'Open', 'High', 'Low'], inplace=True)
         df['Date'] = pd.to_datetime(df['Date'])
         
