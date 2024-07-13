@@ -7,8 +7,7 @@ import tensorflow as tf
 from tsForecaster.components.data_preprocessing import DataPreProcessing
 from tsForecaster.config.configuration import ConfigurationManager
 from tsForecaster.constants import CONFIG_FILE_PATH, PARAMS_FILE_PATH
-from tsForecaster.pipeline.stage_02_data_preprocessing import DataPreProcessingPipeline
-from tsForecaster.utils.common import create_directories, read_yaml
+from tsForecaster.utils.common import read_yaml
 
 def create_features(df, pred):
     
