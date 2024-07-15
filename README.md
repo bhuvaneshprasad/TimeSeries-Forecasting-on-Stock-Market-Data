@@ -123,4 +123,4 @@ uvicorn app:app --reload
 
 ## License
 
-- [MIT License](https://github.com/bhuvaneshprasad/End-to-End-SETI-Classification-using-CNN-MLFlow-DVC/blob/main/LICENSE)
+- [MIT License](https://github.com/bhuvaneshprasad/TimeSeries-Forecasting-on-Stock-Market-Data/blob/main/LICENSE)
